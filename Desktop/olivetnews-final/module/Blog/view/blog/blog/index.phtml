@@ -1,0 +1,29 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'Olivet University';
+$this->headTitle($title);
+?>
+<h1>Categories</h1>
+<p>
+    <a href="<?php echo $this->url('blog', array('action'=>'add'));?>">Add Category</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Name</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach($this->posts as $post):?>
+<tr>
+    <td> <a href="<?php echo $this->url('blog',
+            array('action'=>'article', 'id' => $post->getId()));?>"><?php echo $post->getName();?></a></td>
+    <td>
+        <a href="<?php echo $this->url('blog',
+            array('action'=>'edit', 'id' => $post->getId()));?>">Edit</a>
+        <a href="<?php echo $this->url('blog',
+            array('action'=>'delete', 'id' =>$post->getId()));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

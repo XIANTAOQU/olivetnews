@@ -1,0 +1,27 @@
+<h1>Category List</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Position</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<?php foreach ($this->categories as $category):?>
+			<tr>
+				<td><?php
+
+				echo ($category->getId())?></td>
+				<td><?php echo ($category->getName())?></td>
+				<td><?php echo ($category->getPosition())?></td>
+				<td>
+				<a href="<?php echo $this->url("category_post",array("id"=>$category->getId()))?>">View Posts</a>
+				</td>
+			</tr>
+		<?php endforeach;?>
+	</tbody>
+</table>
